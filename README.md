@@ -1,2 +1,1 @@
-# battleships
-battleships assignment for year 1 cs
+# ECM1400 Assessment - Battleships
