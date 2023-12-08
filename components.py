@@ -36,26 +36,30 @@ def place_battleships(board, battleships, placement="simple"):
     placement -- determines the algorithm used to place ships
     """
 
+    # Constants
+    DOWN = 0
+    RIGHT = 1
+
     def is_position_occupied(board, col, row, direction, length):
         """Checks if ship can fit and returns True or False"""
         check = True
         for i in range(int(length)):
-            if direction == 0:
+            if direction == DOWN:
                 if board[col + i][row] is not None:
                     check = False
-            if direction == 1:
+            if direction == RIGHT:
                 if board[col][row + i] is not None:
                     check = False
         return check
 
     def generate_starting_position(board, direction, length):
         """Generated valid starting position depending on direction of ship"""
-        if direction == 0:
+        if direction == DOWN:
             starting_location = [
                 randint(0, len(board) - int(length) - 1),
                 randint(0, len(board) - 1),
             ]
-        else:
+        if direction == RIGHT:
             starting_location = [
                 randint(0, len(board) - 1),
                 randint(0, len(board) - int(length) - 1),
@@ -73,14 +77,14 @@ def place_battleships(board, battleships, placement="simple"):
         for ship, length in battleships.items():
             placed = False
             while not placed:  # Loop to check the ship has a valid placement
-                direction = randint(0, 1)  # 0 is down, 1 is right
+                direction = randint(0, 1)
                 col, row = generate_starting_position(board, direction, length)
                 placed = is_position_occupied(board, col, row, direction, length)
             print(ship, length, direction)
-            if direction == 0:
+            if direction == DOWN:
                 for i in range(int(length)):
                     board[col + i][row] = ship
-            else:
+            if direction == RIGHT:
                 for i in range(int(length)):
                     board[col][row + i] = ship
 
