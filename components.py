@@ -97,7 +97,7 @@ def place_battleships(board, battleships, placement="simple"):
     return board
 
 
-x = place_battleships(initialise_board(), create_battleships(), placement="random")
-for item in x:
-    print(item)
-    # print(initialise_board(), "\n", create_battleships())
+# x = place_battleships(initialise_board(), create_battleships(), placement="random")
+# for item in x:
+# print(item)
+# print(initialise_board(), "\n", create_battleships())
