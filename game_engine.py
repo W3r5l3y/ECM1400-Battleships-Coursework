@@ -1,5 +1,7 @@
 """Module containing game mechanics"""
 
+import components
+
 
 def attack(coordinates, board, battleships):
     """Checks if ships has been hit and updates battleships dictionary"""
@@ -10,7 +12,6 @@ def attack(coordinates, board, battleships):
             board[col][row] = None
             battleships[ship] = str(int(battleships[ship]) - 1)
             return True
-
         return False
 
     print("check if battleship at coordinates")
@@ -33,6 +34,7 @@ def cli_coordinates_input():
 
 
 def simple_game_loop():
+    """Manual testing game loop"""
     print("|" + "-" * 100 + "|")
     print("Wagwan G. Battleships innit")
     print("|" + "-" * 100 + "|")
@@ -52,11 +54,10 @@ def simple_game_loop():
             print("MISS!")
         for lines in board:
             print(lines)
+        # Checks if the board is empty (all values are None)
+        game_over = all(all(value is None for value in row) for row in board)
+    print("GAME OVER GG!")
 
 
 if __name__ == "__main__":
-    import components
-
     simple_game_loop()
-    for lines in board_view:
-        print(lines)
