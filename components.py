@@ -17,14 +17,15 @@ def create_battleships(filename="battleships.txt"):
     """Reads the text file and returns battleships as a dictionary
 
     Keyword arguments:
-    filename -- the name of the file to read the battleships from (default "battleships.txt")
+    filename -- name of file containing battleship data (default "battleships.txt")
     """
     battleships = {}
-    file = open(filename, "r").readlines()
-    for line in file:
-        ship = line.strip().split(":")
-        battleships[ship[0]] = ship[1]
-    return battleships
+    with open(filename, "r", encoding="utf-8") as f:
+        filelines = f.readlines()
+        for line in filelines:
+            ship = line.strip().split(":")
+            battleships[ship[0]] = ship[1]
+        return battleships
 
 
 def place_battleships(board, battleships, placement="simple"):
@@ -80,7 +81,6 @@ def place_battleships(board, battleships, placement="simple"):
                 direction = randint(0, 1)
                 col, row = generate_starting_position(board, direction, length)
                 placed = is_position_occupied(board, col, row, direction, length)
-            print(ship, length, direction)
             if direction == DOWN:
                 for i in range(int(length)):
                     board[col + i][row] = ship
@@ -89,10 +89,10 @@ def place_battleships(board, battleships, placement="simple"):
                     board[col][row + i] = ship
 
     elif placement == "custom":
-        print("custom")
+        print("Custom Placement")
 
     else:
-        print("lethal beans")
+        print("Invalid placement type!")
 
     return board
 
