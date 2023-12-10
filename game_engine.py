@@ -11,18 +11,18 @@ def attack(coordinates, board, battleships):
     board -- list of lists containing battleship placements
     battlships -- dictionary containing battleship name and length
     """
-    if max(coordinates) <= len(board):
+    if max(coordinates) < len(board):
         col, row = coordinates
         if board[col][row] is not None:
             ship = board[col][row]
             board[col][row] = None
+            # Decrements length of hit ship by 1
             battleships[ship] = str(int(battleships[ship]) - 1)
             return True
+        # If cell is empty
         return False
-
-    print("check if battleship at coordinates")
-    print("set value to none if hit")
-    return True
+    # If coords are out of bounds
+    return False
 
 
 def cli_coordinates_input():

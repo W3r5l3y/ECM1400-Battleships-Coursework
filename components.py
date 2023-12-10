@@ -55,6 +55,8 @@ def place_battleships(board, battleships, placement="simple"):
 
     def generate_starting_position(board, direction, length):
         """Generated valid starting position depending on direction of ship"""
+        if len(board) - int(length) - 1 == -1:
+            return [0, 0]
         if direction == DOWN:
             starting_location = [
                 randint(0, len(board) - int(length) - 1),
