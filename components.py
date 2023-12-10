@@ -3,7 +3,7 @@
 from random import randint
 
 
-def initialise_board(size=10):
+def initialise_board(size: int = 10) -> list[list[None]]:
     """Initialises a board of size * size
 
     Keyword arguments:
@@ -13,22 +13,26 @@ def initialise_board(size=10):
     return board
 
 
-def create_battleships(filename="battleships.txt"):
+def create_battleships(filename: str = "battleships.txt") -> dict[str, str]:
     """Reads the text file and returns battleships as a dictionary
 
     Keyword arguments:
     filename -- name of file containing battleship data (default "battleships.txt")
     """
     battleships = {}
+    # Opens file and reads each line
     with open(filename, "r", encoding="utf-8") as f:
         filelines = f.readlines()
         for line in filelines:
+            # Splits each line into ship name and length and adds to dictionary
             ship = line.strip().split(":")
             battleships[ship[0]] = ship[1]
         return battleships
 
 
-def place_battleships(board, battleships, placement="simple"):
+def place_battleships(
+    board: list[list[None]], battleships: dict[str, str], placement: str = "simple"
+) -> list[list[None]]:
     """Places battleships onto the board and returns it
 
     Keyword arguments:
@@ -41,7 +45,9 @@ def place_battleships(board, battleships, placement="simple"):
     DOWN = 0
     RIGHT = 1
 
-    def is_position_occupied(board, col, row, direction, length):
+    def is_position_occupied(
+        board: list[list[None]], col: int, row: int, direction: int, length: int
+    ) -> bool:
         """Checks if ship can fit and returns True or False"""
         check = True
         for i in range(int(length)):
@@ -53,8 +59,11 @@ def place_battleships(board, battleships, placement="simple"):
                     check = False
         return check
 
-    def generate_starting_position(board, direction, length):
-        """Generated valid starting position depending on direction of ship"""
+    def generate_starting_position(
+        board: list[list[None]], direction: int, length: int
+    ) -> list[int, int]:
+        """Generated valid starting position depending on size of board and the
+        direction and length of ship"""
         if len(board) - int(length) - 1 == -1:
             return [0, 0]
         if direction == DOWN:
