@@ -1,5 +1,5 @@
-Ship1:5
-Ship2:4
-Ship3:3
-Ship4:3
-Ship5:2
+Aircraft_Carrier:5
+Battleship:4
+Cruiser:3
+Submarine:3
+Destroyer:2
