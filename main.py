@@ -10,11 +10,13 @@ app = Flask(__name__)
 
 @app.route("/")  # Maps a function to the URL path
 def hello_world():
+    """Sends Hello World!"""
     return "Hello World!"
 
 
 @app.route("/cheese")  # Maps a function to the URL path /cheese
 def james_may():
+    """Sends a cheese string"""
     return "BEANS!"
 
 
