@@ -153,7 +153,7 @@ def print_player_board(board: list[list]) -> None:
     # Finds the string length of the longest cell
     for row in board:
         for cell in row:
-            # Checks if cell is not empty and uipdates cell_length
+            # Checks if cell is not empty and updates cell_length
             if cell is not None:
                 cell_length = len(str(cell))
                 # Updates max_length if cell_length is greater
