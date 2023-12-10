@@ -4,7 +4,13 @@ import components
 
 
 def attack(coordinates, board, battleships):
-    """Checks if ships has been hit and updates battleships dictionary"""
+    """Checks if ships has been hit and updates battleships dictionary
+
+    Keyword arguments:
+    coordinates -- a tuple containing coordinate values
+    board -- list of lists containing battleship placements
+    battlships -- dictionary containing battleship name and length
+    """
     if max(coordinates) <= len(board):
         col, row = coordinates
         if board[col][row] is not None:
