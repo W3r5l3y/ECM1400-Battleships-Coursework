@@ -68,6 +68,7 @@ def place_battleships(board, battleships, placement="simple"):
         return starting_location
 
     if placement == "simple" and len(battleships) <= len(board):
+        # Places one battleship on each row
         count = 0
         for key in battleships.keys():
             for i in range(int(battleships[key])):
@@ -75,12 +76,15 @@ def place_battleships(board, battleships, placement="simple"):
             count += 1
 
     elif placement == "random":
+        # Places battleships randomly with random orientation
         for ship, length in battleships.items():
             placed = False
             while not placed:  # Loop to check the ship has a valid placement
                 direction = randint(0, 1)
                 col, row = generate_starting_position(board, direction, length)
                 placed = is_position_occupied(board, col, row, direction, length)
+
+            # Places the ship onto the board
             if direction == DOWN:
                 for i in range(int(length)):
                     board[col + i][row] = ship
@@ -95,9 +99,3 @@ def place_battleships(board, battleships, placement="simple"):
         print("Invalid placement type!")
 
     return board
-
-
-# x = place_battleships(initialise_board(), create_battleships(), placement="random")
-# for item in x:
-# print(item)
-# print(initialise_board(), "\n", create_battleships())
