@@ -57,7 +57,7 @@ def simple_game_loop():
     board = components.place_battleships(
         board,
         battleships,
-        placement="simple",
+        algorithm="simple",
     )
 
     # Game loop
