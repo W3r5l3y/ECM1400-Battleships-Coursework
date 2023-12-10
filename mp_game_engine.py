@@ -19,7 +19,7 @@ def ai_opponent_game_loop():
     size = 5  # Size of grid used
 
     print("|" + "-" * 100 + "|")
-    print("Wagwan G. Battleships innit (MULTIPLAYER)")
+    print("Welcome to Battleships! (MULTIPLAYER)")
     print("|" + "-" * 100 + "|")
     username = str(input("Enter your name...\n"))
 
@@ -100,7 +100,8 @@ def ai_opponent_game_loop():
     print(f"THE WINNER WAS {winner}!")
 
 
-# players = {"james": {"board": [], "battleships": {}}}
+# Initialises dictionary to store player data
 players = {}
+
 if __name__ == "__main__":
     ai_opponent_game_loop()
