@@ -104,17 +104,3 @@ def ai_opponent_game_loop():
 players = {}
 if __name__ == "__main__":
     ai_opponent_game_loop()
-
-"""
-game_over = False
-    while game_over is False:
-        coordinates = cli_coordinates_input()
-        if attack(coordinates, board, battleships) is True:
-            print("HIT!")
-        else:
-            print("MISS!")
-        for lines in board:
-            print(lines)
-        # Checks if the board is empty (all values are None)
-        game_over = all(all(value is None for value in row) for row in board)
-"""
