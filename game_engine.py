@@ -67,8 +67,7 @@ def simple_game_loop():
             coordinates = cli_coordinates_input()
             if max(coordinates) < len(board):
                 break
-            else:
-                print("Coordinates out of range!")
+            print("Coordinates out of range!")
         if attack(coordinates, board, battleships) is True:
             print("HIT!")
         else:
