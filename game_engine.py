@@ -29,28 +29,38 @@ def cli_coordinates_input():
     """Requests user input and formats into tuple"""
     while True:
         try:
-            entry = str(input("Enter Coordinates...\n"))
+            entry = input("Enter Coordinates...\n")
+            # Checks if entry is two characters long
             if len(entry) != 2:
                 print("Invalid data entered!")
                 continue
+            # Converts entry string into tuple
             coordinates = (int(entry[0]), int(entry[1]))
             return coordinates
-        except (ValueError, IndexError) as err:
-            print("Error:", err)
+        except ValueError:
+            print("Invalid data entered! Please enter numbers only.")
+        except IndexError:
+            print("Error: Index out of range.")
 
 
 def simple_game_loop():
     """Manual testing game loop"""
     print("|" + "-" * 100 + "|")
-    print("Wagwan G. Battleships innit")
+    print("Welcome to Battleships! (SINGLEPLAYER))")
     print("|" + "-" * 100 + "|")
+
+    # Initialises the board and battleships
     board = components.initialise_board()
     battleships = components.create_battleships()
+
+    # Places battleships on the board
     board = components.place_battleships(
         board,
         battleships,
         placement="simple",
     )
+
+    # Game loop
     game_over = False
     while game_over is False:
         coordinates = cli_coordinates_input()
@@ -62,7 +72,7 @@ def simple_game_loop():
             print(lines)
         # Checks if the board is empty (all values are None)
         game_over = all(all(value is None for value in row) for row in board)
-    print("GAME OVER GG!")
+    print("GAME OVER!")
 
 
 if __name__ == "__main__":
