@@ -1,7 +1,5 @@
 Test Report
 ===========
 
-create_battleships function does not return a dictionary
-place_battleships function is missing an argument.Check your function has a board, ships and algorithm argument
 root function does not exist in your solution.
 placement_interface function does not exist in your solution.
