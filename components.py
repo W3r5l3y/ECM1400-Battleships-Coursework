@@ -2,6 +2,10 @@
 
 from random import randint
 
+# Constants
+DOWN = 0
+RIGHT = 1
+
 
 def initialise_board(size: int = 10) -> list[list[None]]:
     """Initialises a board of size * size
@@ -30,6 +34,92 @@ def create_battleships(filename: str = "battleships.txt") -> dict[str, str]:
         return battleships
 
 
+def is_position_occupied(
+    board: list[list[None]], col: int, row: int, direction: int, length: int
+) -> bool:
+    """Checks if ship can fit and returns True or False"""
+    check = True
+    for i in range(int(length)):
+        # Iterates through the length of the ship
+        if direction == DOWN:
+            # Checks if cell is occupied iterating down the column
+            if board[col + i][row] is not None:
+                check = False
+        if direction == RIGHT:
+            # Checks if cell is occupied iterating across the row
+            if board[col][row + i] is not None:
+                check = False
+    return check
+
+
+def generate_starting_position(
+    board: list[list[None]], direction: int, length: int
+) -> list[int, int]:
+    """Generated valid starting position depending on size of board and the
+    direction and length of ship"""
+    if len(board) - int(length) - 1 == -1:
+        return [0, 0]
+    if direction == DOWN:
+        # Generates random starting position within the board
+        starting_location = [
+            randint(0, len(board) - int(length) - 1),
+            randint(0, len(board) - 1),
+        ]
+    if direction == RIGHT:
+        # Generates random starting position within the board
+        starting_location = [
+            randint(0, len(board) - 1),
+            randint(0, len(board) - int(length) - 1),
+        ]
+    return starting_location
+
+
+def place_battleships_simple(
+    board: list[list[None]], battleships: dict[str, str]
+) -> list[list[None]]:
+    """Places a battleship on each row"""
+    count = 0
+    for key in battleships.keys():
+        # Repeats for each ship
+        for i in range(int(battleships[key])):
+            # Repeats for the length of the ship
+            board[count][i] = key
+        count += 1
+    return board
+
+
+def place_battleships_random(
+    board: list[list[None]], battleships: dict[str, str]
+) -> list[list[None]]:
+    """Places battleships randomly onto the board"""
+    for ship, length in battleships.items():
+        # Repeats for each ship
+        placed = False
+        while not placed:
+            # Loop to check the ship has a valid placement
+            direction = randint(0, 1)
+            col, row = generate_starting_position(board, direction, length)
+            placed = is_position_occupied(board, col, row, direction, length)
+
+        # Places the ship onto the board
+        if direction == DOWN:
+            for i in range(int(length)):
+                board[col + i][row] = ship
+        if direction == RIGHT:
+            for i in range(int(length)):
+                board[col][row + i] = ship
+    return board
+
+
+def place_battleships_custom(
+    board: list[list[None]], battleships: dict[str, str]
+) -> list[list[None]]:
+    """Custom placement of battleships using placement.json"""
+    print("Custom Placement")
+    print(battleships)
+    return board
+
+
 def place_battleships(
     board: list[list[None]], battleships: dict[str, str], placement: str = "simple"
 ) -> list[list[None]]:
@@ -38,77 +128,17 @@ def place_battleships(
     Keyword arguments:
     board -- a list of lists containing None
     ships -- a dictionary containing each ship and its length
-    placement -- determines the algorithm used to place ships
+    placement -- determines the algorithm used to place ships (default "simple")
     """
-
-    # Constants
-    DOWN = 0
-    RIGHT = 1
-
-    def is_position_occupied(
-        board: list[list[None]], col: int, row: int, direction: int, length: int
-    ) -> bool:
-        """Checks if ship can fit and returns True or False"""
-        check = True
-        for i in range(int(length)):
-            if direction == DOWN:
-                if board[col + i][row] is not None:
-                    check = False
-            if direction == RIGHT:
-                if board[col][row + i] is not None:
-                    check = False
-        return check
-
-    def generate_starting_position(
-        board: list[list[None]], direction: int, length: int
-    ) -> list[int, int]:
-        """Generated valid starting position depending on size of board and the
-        direction and length of ship"""
-        if len(board) - int(length) - 1 == -1:
-            return [0, 0]
-        if direction == DOWN:
-            starting_location = [
-                randint(0, len(board) - int(length) - 1),
-                randint(0, len(board) - 1),
-            ]
-        if direction == RIGHT:
-            starting_location = [
-                randint(0, len(board) - 1),
-                randint(0, len(board) - int(length) - 1),
-            ]
-        return starting_location
-
     if placement == "simple" and len(battleships) <= len(board):
-        # Places one battleship on each row
-        count = 0
-        for key in battleships.keys():
-            for i in range(int(battleships[key])):
-                board[count][i] = key
-            count += 1
+        return place_battleships_simple(board, battleships)
+    if placement == "random":
+        return place_battleships_random(board, battleships)
+    if placement == "custom":
+        return place_battleships_custom(board, battleships)
 
-    elif placement == "random":
-        # Places battleships randomly with random orientation
-        for ship, length in battleships.items():
-            placed = False
-            while not placed:  # Loop to check the ship has a valid placement
-                direction = randint(0, 1)
-                col, row = generate_starting_position(board, direction, length)
-                placed = is_position_occupied(board, col, row, direction, length)
-
-            # Places the ship onto the board
-            if direction == DOWN:
-                for i in range(int(length)):
-                    board[col + i][row] = ship
-            if direction == RIGHT:
-                for i in range(int(length)):
-                    board[col][row + i] = ship
-
-    elif placement == "custom":
-        print("Custom Placement")
-
-    else:
-        print("Invalid placement type!")
-
+    # Will return original board if placement is invalid
+    print("Invalid placement type!")
     return board
 
 
