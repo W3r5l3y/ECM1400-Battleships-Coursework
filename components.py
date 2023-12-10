@@ -119,13 +119,25 @@ def print_player_board(board: list[list]) -> None:
     players -- a dictionary containing player data
     username -- the username of the player
     """
+    max_length = 0
+    # Finds the string length of the longest cell
+    for row in board:
+        for cell in row:
+            # Checks if cell is not empty and uipdates cell_length
+            if cell is not None:
+                cell_length = len(str(cell))
+                # Updates max_length if cell_length is greater
+                if cell_length > max_length:
+                    max_length = cell_length
+
+    # Prints out the board
     for row in board:
         for cell in row:
             if cell is None:
                 # Prints empty cell
-                print("  ~".ljust(7), end="")
+                print("  ~".ljust(max_length + 2), end="")
             else:
                 # Prints cell with ship name
-                print(f" {cell} ".ljust(7), end="")
+                print(f" {cell} ".ljust(max_length + 2), end="")
         # Prints new line after each row
         print()
