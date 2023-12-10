@@ -73,13 +73,7 @@ def simple_game_loop():
         else:
             print("MISS!")
         # Prints out players resulting board
-        for row in board:
-            for cell in row:
-                if cell is None:
-                    print("  ~".ljust(7), end="")
-                else:
-                    print(f" {cell} ".ljust(7), end="")
-            print()
+        components.print_player_board(board)
         # Checks if the board is empty (all values are None)
         game_over = all(all(value is None for value in row) for row in board)
     print("GAME OVER!")

@@ -110,3 +110,22 @@ def place_battleships(
         print("Invalid placement type!")
 
     return board
+
+
+def print_player_board(board: list[list]) -> None:
+    """Prints out player's resulting board.
+
+    Keyword arguments:
+    players -- a dictionary containing player data
+    username -- the username of the player
+    """
+    for row in board:
+        for cell in row:
+            if cell is None:
+                # Prints empty cell
+                print("  ~".ljust(7), end="")
+            else:
+                # Prints cell with ship name
+                print(f" {cell} ".ljust(7), end="")
+        # Prints new line after each row
+        print()

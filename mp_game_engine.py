@@ -16,7 +16,7 @@ def generate_attack(size):
 def ai_opponent_game_loop():
     """Manual testing game loop for MP"""
 
-    size = 5  # Size of grid used
+    size = 10  # Size of grid used
 
     print("|" + "-" * 100 + "|")
     print("Welcome to Battleships! (MULTIPLAYER)")
@@ -81,13 +81,7 @@ def ai_opponent_game_loop():
         else:
             print("BOT MISS!")
         # Prints out players resulting board
-        for row in players[username]["board"]:
-            for cell in row:
-                if cell is None:
-                    print("  ~".ljust(7), end="")
-                else:
-                    print(f" {cell} ".ljust(7), end="")
-            print()
+        components.print_player_board(players[username]["board"])
         # Checks if the player's board is empty
         game_over = all(
             all(value is None for value in row) for row in players[username]["board"]
