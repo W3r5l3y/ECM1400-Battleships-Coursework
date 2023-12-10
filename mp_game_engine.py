@@ -42,10 +42,10 @@ def ai_opponent_game_loop():
 
     # Places battleships on each players board
     players[username]["board"] = components.place_battleships(
-        player_board, player_battleships, placement="simple"
+        player_board, player_battleships, algorithm="simple"
     )  # must be CUSTOM
     players["BOT"]["board"] = components.place_battleships(
-        bot_board, bot_battleships, placement="random"
+        bot_board, bot_battleships, algorithm="random"
     )
 
     # Game loop

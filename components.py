@@ -30,7 +30,7 @@ def create_battleships(filename: str = "battleships.txt") -> dict[str, str]:
         for line in filelines:
             # Splits each line into ship name and length and adds to dictionary
             ship = line.strip().split(":")
-            battleships[ship[0]] = ship[1]
+            battleships[ship[0]] = int(ship[1])
         return battleships
 
 
@@ -75,21 +75,21 @@ def generate_starting_position(
 
 
 def place_battleships_simple(
-    board: list[list[None]], battleships: dict[str, str]
+    board: list[list[None]], battleships: dict[str, int]
 ) -> list[list[None]]:
     """Places a battleship on each row"""
     count = 0
-    for key in battleships.keys():
+    for ship in battleships.keys():
         # Repeats for each ship
-        for i in range(int(battleships[key])):
+        for i in range(battleships[ship]):
             # Repeats for the length of the ship
-            board[count][i] = key
+            board[count][i] = ship
         count += 1
     return board
 
 
 def place_battleships_random(
-    board: list[list[None]], battleships: dict[str, str]
+    board: list[list[None]], battleships: dict[str, int]
 ) -> list[list[None]]:
     """Places battleships randomly onto the board"""
     for ship, length in battleships.items():
@@ -112,33 +112,33 @@ def place_battleships_random(
 
 
 def place_battleships_custom(
-    board: list[list[None]], battleships: dict[str, str]
+    board: list[list[None]], battleships: dict[str, int]
 ) -> list[list[None]]:
-    """Custom placement of battleships using placement.json"""
-    print("Custom Placement")
+    """Custom algorithm of battleships using placement.json"""
+    print("Custom algorithm")
     print(battleships)
     return board
 
 
 def place_battleships(
-    board: list[list[None]], battleships: dict[str, str], placement: str = "simple"
+    board: list[list[None]], ships: dict[str, int], algorithm: str = "simple"
 ) -> list[list[None]]:
     """Places battleships onto the board and returns it
 
     Keyword arguments:
     board -- a list of lists containing None
     ships -- a dictionary containing each ship and its length
-    placement -- determines the algorithm used to place ships (default "simple")
+    algorithm -- determines the algorithm used to place ships (default "simple")
     """
-    if placement == "simple" and len(battleships) <= len(board):
-        return place_battleships_simple(board, battleships)
-    if placement == "random":
-        return place_battleships_random(board, battleships)
-    if placement == "custom":
-        return place_battleships_custom(board, battleships)
+    if algorithm == "simple" and len(ships) <= len(board):
+        return place_battleships_simple(board, ships)
+    if algorithm == "random":
+        return place_battleships_random(board, ships)
+    if algorithm == "custom":
+        return place_battleships_custom(board, ships)
 
-    # Will return original board if placement is invalid
-    print("Invalid placement type!")
+    # Will return original board if algorithm arg is invalid
+    print("Invalid algorithm type!")
     return board
 
 
