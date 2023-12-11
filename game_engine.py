@@ -1,6 +1,6 @@
 """Module containing game mechanics"""
 
-import components
+import components as c
 
 
 def attack(coordinates, board, battleships):
@@ -50,14 +50,14 @@ def simple_game_loop():
     print("|" + "-" * 100 + "|")
 
     # Initialises the board and battleships
-    board = components.initialise_board(5)
-    battleships = components.create_battleships()
+    board = c.initialise_board()
+    battleships = c.create_battleships()
 
     # Places battleships on the board
-    board = components.place_battleships(
+    board = c.place_battleships(
         board,
         battleships,
-        algorithm="simple",
+        algorithm="custom",
     )
 
     # Game loop
@@ -74,7 +74,7 @@ def simple_game_loop():
         else:
             print("MISS!")
         # Prints out players resulting board
-        components.print_player_board(board)
+        c.print_player_board(board)
         # Checks if the board is empty (all values are None)
         game_over = all(all(value is None for value in row) for row in board)
     print("GAME OVER!")
