@@ -46,17 +46,23 @@ def root():
 
 @app.route("/attack", methods=["GET"])
 def process_attack():
-    """PLACEHOLDER"""
+    """
+    Processes an attack made when the player clicks on the grid.
+
+    This function is called when a GET request is made to the "/attack" route.
+    It reads the attack coordinates from the request arguments and plays one turn of battleships.
+    There are 2 checks for game over and when game is over, GET requests made to the "/attack" route
+    will be ignored
+    """
 
     if request.args:
         try:
-            player_list = list(players.keys())
-            player1, player2 = player_list
+            player_list = ["player", "BOT"]
             for username in player_list:
                 game_over = False
                 game_over = c.check_game_over(username, players)
                 if game_over is True:
-                    winner = player2.upper() if username == player1 else player1.upper()
+                    winner = "BOT" if username == "player" else "PLAYER"
                     break
 
             if game_over is not True:
@@ -78,13 +84,12 @@ def process_attack():
                     players["player"]["battleships"],
                 )
 
-            player_list = list(players.keys())
-            player1, player2 = player_list
+            player_list = ["player", "BOT"]
             for username in player_list:
                 game_over = False
                 game_over = c.check_game_over(username, players)
                 if game_over is True:
-                    winner = player2.upper() if username == player1 else player1.upper()
+                    winner = "BOT" if username == "player" else "PLAYER"
                     break
 
             if game_over is True:
@@ -131,14 +136,16 @@ bot_board = c.place_battleships(
     bot_board, bot_battleships, algorithm="simple"
 )  # CHANGE TO RANDOM
 
-# Saves board and battleships into player dictionaries
-players["player"] = {
-    "board": player_board,
-    "battleships": player_battleships,
-}
-players["BOT"] = {
-    "board": bot_board,
-    "battleships": bot_battleships,
+# Saves board and battleships into players dictionary
+players = {
+    "player": {
+        "board": player_board,
+        "battleships": player_battleships,
+    },
+    "BOT": {
+        "board": bot_board,
+        "battleships": bot_battleships,
+    },
 }
 
 if __name__ == "__main__":
