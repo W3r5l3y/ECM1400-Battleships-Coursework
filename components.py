@@ -14,8 +14,10 @@ def initialise_board(size: int = 10) -> list[list[None]]:
     Keyword arguments:
     size -- the size of the board (default 10, range: 5-10)
     """
-    if size < 5 or size > 10 or not isinstance(size, int):
+    if size < 5 or size > 10:
         raise ValueError("Size must be between 5 and 10")
+    if not isinstance(size, int) or size is None:
+        raise TypeError("Size must be an integer")
     board = [[None] * size for _ in range(size)]
     return board
 
