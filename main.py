@@ -35,7 +35,7 @@ def placement_interface():
 def root():
     """PLACEHOLDER"""
 
-    # Declaring global variables
+    # Declaring global variable
     global player_board
 
     if request.method == "GET":
