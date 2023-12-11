@@ -157,3 +157,37 @@ def test_place_battleships_algorithm(algorithm, expected_exception):
     else:
         with pytest.raises(expected_exception):
             place_battleships(ideal_board, ideal_ships, algorithm)
+
+
+# Test for correct output of initialise_board
+def test_initialise_board_output():
+    board = initialise_board()
+
+    # Check the type of the output
+    # Checks board is a list
+    assert isinstance(board, list)
+    # Checks that board is a list of lists
+    assert all(isinstance(row, list) for row in board)
+    # Checks that every element of the board is None
+    assert all(all(element is None for element in row) for row in board)
+
+
+# Test for correct output of create_battleships
+def test_create_battleships_output():
+    battleships = create_battleships("battleships.txt")
+
+    # Check the type of the output
+    # Checks battleships is a dictionary
+    assert isinstance(battleships, dict)
+    # Checks the keys are strings and the values are integers
+    assert all(isinstance(keys, str) for keys in battleships.keys())
+    assert all(isinstance(values, int) for values in battleships.values())
+
+
+# Test for correct output of place_battleships
+def test_place_battleships_output():
+    board = place_battleships(ideal_board, ideal_ships)
+
+    # Check the type of the output
+    # Checks board is a list
+    assert isinstance(board, list)
