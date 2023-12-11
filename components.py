@@ -120,8 +120,8 @@ def place_battleships_custom(
     with open("placement.json", "r", encoding="utf-8") as placement:
         ship_data = json.load(placement)
     for ship, key in ship_data.items():
-        col = int(key[0])
-        row = int(key[1])
+        col = int(key[1])
+        row = int(key[0])
         direction = key[2]
         length = battleships.get(ship)
         # Places the ship onto the board
@@ -186,3 +186,19 @@ def print_player_board(board: list[list]) -> None:
                 print(f" {cell} ".ljust(max_length + 2), end="")
         # Prints new line after each row
         print()
+
+
+def check_game_over(username: str, players: dict) -> bool:
+    # Assume game is over
+    game_over = True
+    for row in players[username]["board"]:
+        for value in row:
+            # If value is not None
+            if value is not None:
+                # The game is not over
+                game_over = False
+                break
+        # If game is not over
+        if not game_over:
+            break
+    return game_over
