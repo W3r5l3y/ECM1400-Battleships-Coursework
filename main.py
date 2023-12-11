@@ -78,7 +78,7 @@ def process_attack():
                 row = request.args.get("x")
                 col = request.args.get("y")
                 player_attack = (int(col), int(row))
-                # Perfoms attack on bot board and returns hit or miss as True or False
+                # Performs attack on bot board and returns hit or miss as True or False
                 outcome = ge.attack(
                     player_attack,
                     players["BOT"]["board"],
