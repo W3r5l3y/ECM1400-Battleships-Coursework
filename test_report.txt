@@ -1,5 +1,3 @@
 Test Report
 ===========
 
-root function does not exist in your solution.
-placement_interface function does not exist in your solution.
