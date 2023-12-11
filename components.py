@@ -12,8 +12,10 @@ def initialise_board(size: int = 10) -> list[list[None]]:
     """Initialises a board of size * size
 
     Keyword arguments:
-    size -- the size of the board (default 10)
+    size -- the size of the board (default 10, range: 5-10)
     """
+    if size < 5 or size > 10 or not isinstance(size, int):
+        raise ValueError("Size must be between 5 and 10")
     board = [[None] * size for _ in range(size)]
     return board
 
@@ -28,15 +30,17 @@ def create_battleships(filename: str = "battleships.txt") -> dict[str, int]:
     # Opens file and reads each line
     with open(filename, "r", encoding="utf-8") as f:
         filelines = f.readlines()
+        # Iterates through each line
         for line in filelines:
-            # Splits each line into ship name and length and adds to dictionary
+            # Splits each line into ship name and length
             ship = line.strip().split(":")
+            # Adds data to dictionary
             battleships[ship[0]] = int(ship[1])
         return battleships
 
 
 def is_position_occupied(
-    board: list[list[None]], col: int, row: int, direction: int, length: int
+    board: list[list], col: int, row: int, direction: int, length: int
 ) -> bool:
     """Checks if ship can fit and returns True or False"""
     check = True
@@ -77,7 +81,7 @@ def generate_starting_position(
 
 def place_battleships_simple(
     board: list[list[None]], battleships: dict[str, int]
-) -> list[list[None]]:
+) -> list[list]:
     """Places a battleship on each row"""
     count = 0
     for ship in battleships.keys():
@@ -91,13 +95,13 @@ def place_battleships_simple(
 
 def place_battleships_random(
     board: list[list[None]], battleships: dict[str, int]
-) -> list[list[None]]:
+) -> list[list]:
     """Places battleships randomly onto the board"""
     for ship, length in battleships.items():
         # Repeats for each ship
         placed = False
+        # Loop to check the ship has a valid placement
         while not placed:
-            # Loop to check the ship has a valid placement
             direction = randint(0, 1)
             col, row = generate_starting_position(board, direction, length)
             placed = is_position_occupied(board, col, row, direction, length)
@@ -114,22 +118,27 @@ def place_battleships_random(
 
 def place_battleships_custom(
     board: list[list[None]], battleships: dict[str, int]
-) -> list[list[None]]:
+) -> list[list]:
     """Custom algorithm of battleships using placement.json"""
 
+    # Load ship placement data from placement.json
     with open("placement.json", "r", encoding="utf-8") as placement:
         ship_data = json.load(placement)
+
+    # Place each ship on the board based on custom placement data
     for ship, key in ship_data.items():
+        # Creates variables of all ship data
         col = int(key[1])
         row = int(key[0])
         direction = key[2]
         length = battleships.get(ship)
+
         # Places the ship onto the board
         if direction == "v":
-            for i in range(int(length)):
+            for i in range(length):
                 board[col + i][row] = ship
         if direction == "h":
-            for i in range(int(length)):
+            for i in range(length):
                 board[col][row + i] = ship
 
     return board
@@ -137,7 +146,7 @@ def place_battleships_custom(
 
 def place_battleships(
     board: list[list[None]], ships: dict[str, int], algorithm: str = "simple"
-) -> list[list[None]]:
+) -> list[list]:
     """Places battleships onto the board and returns it
 
     Keyword arguments:
@@ -152,9 +161,8 @@ def place_battleships(
     if algorithm == "custom":
         return place_battleships_custom(board, ships)
 
-    # Will return original board if algorithm arg is invalid
-    print("Invalid algorithm type!")
-    return board
+    # Raises error if algorithm is invalid
+    raise ValueError(f"Invalid algorithm type: {algorithm}")
 
 
 def print_player_board(board: list[list]) -> None:
@@ -195,9 +203,13 @@ def check_game_over(username: str, players: dict) -> bool:
     username -- username of the player
     players -- dictionary containing the game data of each player
     """
+    # Assume game is over
     game_over = True
+    # Iterate over each row in player board
     for row in players[username]["board"]:
+        # Iterate over each value in row
         for value in row:
+            # If a non-empty cell is found, the game is not over
             if value is not None:
                 game_over = False
                 break
