@@ -29,6 +29,8 @@ def create_battleships(filename: str = "battleships.txt") -> dict[str, int]:
     filename -- name of file containing battleship data (default "battleships.txt")
     """
     battleships = {}
+    if not isinstance(filename, str) or filename is None:
+        raise TypeError("Filename must be a string")
     try:
         with open(filename, "r", encoding="utf-8") as f:
             filelines = f.readlines()
@@ -40,10 +42,6 @@ def create_battleships(filename: str = "battleships.txt") -> dict[str, int]:
                     raise ValueError("Invalid data format in the file")
     except FileNotFoundError as err:
         raise FileNotFoundError(f"File '{filename}' not found") from err
-    except ValueError as err:
-        raise ValueError(f"Invalid data format in the file '{filename}'") from err
-    except TypeError as err:
-        raise TypeError(f"Invalid data type in the file '{filename}'") from err
     return battleships
 
 
@@ -167,12 +165,18 @@ def place_battleships(
         raise TypeError("Board must be a list")
     if len(board) < 5 or len(board) > 10:
         raise ValueError("Board must be between 5 and 10")
-    # Checks if argument ships is a dictionary
+
+    # Checks if argument ships is a valid dictionary
     if not isinstance(ships, dict) or ships is None:
         raise TypeError("Ships must be a dictionary")
+
+    if not all(isinstance(value, int) for value in ships.values()):
+        raise TypeError("All ship dictionary values must be integers")
+
     # Checks if argument algorithm is a string
     if not isinstance(algorithm, str):
         raise TypeError("Algorithm must be a string")
+
     # Checks if ship lengths are within the board
     if max(ships.values()) > len(board) or min(ships.values()) < 1:
         raise ValueError("Invalid ship length")
