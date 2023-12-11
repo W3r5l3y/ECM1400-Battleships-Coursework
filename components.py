@@ -1,6 +1,7 @@
 """Module containing components of the game Battleships"""
 
 from random import randint
+import json
 
 # Constants
 DOWN = 0
@@ -17,7 +18,7 @@ def initialise_board(size: int = 10) -> list[list[None]]:
     return board
 
 
-def create_battleships(filename: str = "battleships.txt") -> dict[str, str]:
+def create_battleships(filename: str = "battleships.txt") -> dict[str, int]:
     """Reads the text file and returns battleships as a dictionary
 
     Keyword arguments:
@@ -115,8 +116,22 @@ def place_battleships_custom(
     board: list[list[None]], battleships: dict[str, int]
 ) -> list[list[None]]:
     """Custom algorithm of battleships using placement.json"""
-    print("Custom algorithm")
-    print(battleships)
+
+    with open("placement.json", "r", encoding="utf-8") as placement:
+        ship_data = json.load(placement)
+    for ship, key in ship_data.items():
+        col = int(key[0])
+        row = int(key[1])
+        direction = key[2]
+        length = battleships.get(ship)
+        # Places the ship onto the board
+        if direction == "v":
+            for i in range(int(length)):
+                board[col + i][row] = ship
+        if direction == "h":
+            for i in range(int(length)):
+                board[col][row + i] = ship
+
     return board
 
 
