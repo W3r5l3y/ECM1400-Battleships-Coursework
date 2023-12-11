@@ -189,16 +189,18 @@ def print_player_board(board: list[list]) -> None:
 
 
 def check_game_over(username: str, players: dict) -> bool:
-    # Assume game is over
+    """Check if the game is over for a specific player.
+
+    Keyword arguments:
+    username -- username of the player
+    players -- dictionary containing the game data of each player
+    """
     game_over = True
     for row in players[username]["board"]:
         for value in row:
-            # If value is not None
             if value is not None:
-                # The game is not over
                 game_over = False
                 break
-        # If game is not over
         if not game_over:
             break
     return game_over
