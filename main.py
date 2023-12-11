@@ -88,11 +88,19 @@ def process_attack():
                     break
 
             if game_over is True:
+                if winner == "BOT":
+                    return jsonify(
+                        {
+                            "hit": False,
+                            "AI_Turn": bot_attack,
+                            "finished": (f"GAME OVER {winner} WINS!"),
+                        }
+                    )
+
                 return jsonify(
                     {
                         "hit": True,
                         "Player_Turn": (row, col),
-                        "AI_Turn": bot_attack,
                         "finished": (f"GAME OVER {winner} WINS!"),
                     }
                 )
@@ -108,7 +116,7 @@ def process_attack():
 
 
 # Initialises variables
-BOARD_SIZE = 10
+BOARD_SIZE = 5
 players = {}
 
 # Initialises the boards and battleships for player and BOT
