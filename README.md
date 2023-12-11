@@ -26,7 +26,7 @@ To contribute to the project, simply fork the repository and make your changes. 
 
 ## License
 
-This project is licensed under the MIT license. See the `LICENSE` file for more details.
+This project is licensed under the MIT license. See the `LICENSE.txt` file for more details.
 
 ```
 
