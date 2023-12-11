@@ -5,7 +5,7 @@ import components
 import game_engine
 
 
-def generate_attack(size):
+def generate_attack(size=10):
     """Generates coordinates at random"""
     col = randint(0, size - 1)
     row = randint(0, size - 1)
