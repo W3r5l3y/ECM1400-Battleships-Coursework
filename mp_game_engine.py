@@ -16,7 +16,7 @@ def generate_attack(size):
 def ai_opponent_game_loop():
     """Manual testing game loop for MP"""
 
-    size = 10  # Size of grid used
+    size = 5  # Size of grid used
 
     print("|" + "-" * 100 + "|")
     print("Welcome to Battleships! (MULTIPLAYER)")
@@ -53,7 +53,11 @@ def ai_opponent_game_loop():
     while game_over is False:
         # Processes the players coordinates on the BOT's board
         print("\nYour move.")
-        player_attack = game_engine.cli_coordinates_input()
+        while True:
+            player_attack = game_engine.cli_coordinates_input()
+            # Checks if coordinates are within range of board
+            if max(player_attack) < size:
+                break
         outcome = game_engine.attack(
             player_attack, players["BOT"]["board"], players["BOT"]["battleships"]
         )

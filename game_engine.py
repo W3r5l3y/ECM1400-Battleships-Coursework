@@ -32,7 +32,7 @@ def cli_coordinates_input():
             entry = input("Enter Coordinates...\n")
             # Checks if entry is two characters long
             if len(entry) != 2:
-                print("Invalid data entered!")
+                print("Invalid data entered! Please enter two numbers only.")
                 continue
             # Converts entry string into tuple
             coordinates = (int(entry[0]), int(entry[1]))
@@ -50,7 +50,7 @@ def simple_game_loop():
     print("|" + "-" * 100 + "|")
 
     # Initialises the board and battleships
-    board = components.initialise_board()
+    board = components.initialise_board(5)
     battleships = components.create_battleships()
 
     # Places battleships on the board
@@ -65,6 +65,7 @@ def simple_game_loop():
     while game_over is False:
         while True:
             coordinates = cli_coordinates_input()
+            # Checks if coordinates are within range of board
             if max(coordinates) < len(board):
                 break
             print("Coordinates out of range!")
