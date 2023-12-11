@@ -14,13 +14,9 @@ app = Flask(__name__)
 @app.route("/placement", methods=["GET", "POST"])
 def placement_interface():
     """Initial placement of the ships on the board"""
-
-    # Declaring global variables
-    global board_size, player_battleships
-
     if request.method == "GET":
         return render_template(
-            "placement.html", ships=player_battleships, board_size=board_size
+            "placement.html", ships=player_battleships, board_size=BOARD_SIZE
         )
 
     if request.method == "POST":
@@ -37,16 +33,9 @@ def root():
     """PLACEHOLDER"""
 
     # Declaring global variables
-    global players, player_board, player_battleships
+    global player_board
 
     if request.method == "GET":
-        """
-        player_board = c.place_battleships(
-            player_board, player_battleships, algorithm="custom"
-        )
-        players["player"] = {"board": player_board}
-        """
-
         player_board = c.place_battleships(
             player_board, player_battleships, algorithm="custom"
         )
@@ -59,17 +48,15 @@ def root():
 def process_attack():
     """PLACEHOLDER"""
 
-    # Declaring global variables
-    global players
-
     if request.args:
         try:
-            player_list = ["player", "BOT"]
+            player_list = list(players.keys())
+            player1, player2 = player_list
             for username in player_list:
                 game_over = False
                 game_over = c.check_game_over(username, players)
                 if game_over is True:
-                    winner = username
+                    winner = player2.upper() if username == player1 else player1.upper()
                     break
 
             if game_over is not True:
@@ -83,35 +70,21 @@ def process_attack():
                     players["BOT"]["battleships"],
                 )
 
-                # Checks if the BOT's board is empty
-                # game_over = c.check_game_over("BOT", players)
-
-                print(game_over)
-                # Checks for winner
-                # if game_over is True:
-                # winner = "Player"
-
                 # BOT attack on Player's board
-                bot_attack = mge.generate_attack(board_size)
+                bot_attack = mge.generate_attack(BOARD_SIZE)
                 ge.attack(
                     bot_attack,
                     players["player"]["board"],
                     players["player"]["battleships"],
                 )
 
-                # Checks if the player's board is empty
-                # game_over = c.check_game_over("player", players)
-
-                # Checks for winner
-                # if game_over is True:
-                # winner = "BOT"
-
-            player_list = ["player", "BOT"]
+            player_list = list(players.keys())
+            player1, player2 = player_list
             for username in player_list:
                 game_over = False
                 game_over = c.check_game_over(username, players)
                 if game_over is True:
-                    winner = username
+                    winner = player2.upper() if username == player1 else player1.upper()
                     break
 
             if game_over is True:
@@ -128,19 +101,19 @@ def process_attack():
                 {"hit": outcome, "Player_Turn": player_attack, "AI_Turn": bot_attack}
             )
 
-        except:
+        except UnboundLocalError:
             return "Game Over"
 
     return "Unknown Error"
 
 
 # Initialises variables
-board_size = 10
+BOARD_SIZE = 10
 players = {}
 
 # Initialises the boards and battleships for player and BOT
-player_board = c.initialise_board(size=board_size)
-bot_board = c.initialise_board(size=board_size)
+player_board = c.initialise_board(size=BOARD_SIZE)
+bot_board = c.initialise_board(size=BOARD_SIZE)
 
 player_battleships = c.create_battleships()
 bot_battleships = c.create_battleships()
