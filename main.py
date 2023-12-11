@@ -113,6 +113,7 @@ def process_attack():
             # If game over send game over message
             if game_over is True:
                 if winner == "BOT":
+                    # If BOT wins send only BOT coordinates
                     return jsonify(
                         {
                             "hit": False,
@@ -121,6 +122,7 @@ def process_attack():
                         }
                     )
 
+                # If player wins send only player coordinates
                 return jsonify(
                     {
                         "hit": True,
