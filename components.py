@@ -29,16 +29,22 @@ def create_battleships(filename: str = "battleships.txt") -> dict[str, int]:
     filename -- name of file containing battleship data (default "battleships.txt")
     """
     battleships = {}
-    # Opens file and reads each line
-    with open(filename, "r", encoding="utf-8") as f:
-        filelines = f.readlines()
-        # Iterates through each line
-        for line in filelines:
-            # Splits each line into ship name and length
-            ship = line.strip().split(":")
-            # Adds data to dictionary
-            battleships[ship[0]] = int(ship[1])
-        return battleships
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            filelines = f.readlines()
+            for line in filelines:
+                ship = line.strip().split(":")
+                if len(ship) == 2:
+                    battleships[ship[0]] = int(ship[1])
+                else:
+                    raise ValueError("Invalid data format in the file")
+    except FileNotFoundError as err:
+        raise FileNotFoundError(f"File '{filename}' not found") from err
+    except ValueError as err:
+        raise ValueError(f"Invalid data format in the file '{filename}'") from err
+    except TypeError as err:
+        raise TypeError(f"Invalid data type in the file '{filename}'") from err
+    return battleships
 
 
 def is_position_occupied(
@@ -156,6 +162,21 @@ def place_battleships(
     ships -- a dictionary containing each ship and its length
     algorithm -- determines the algorithm used to place ships (default "simple")
     """
+    # Checks if argument board is a list
+    if not isinstance(board, list) or board is None:
+        raise TypeError("Board must be a list")
+    if len(board) < 5 or len(board) > 10:
+        raise ValueError("Board must be between 5 and 10")
+    # Checks if argument ships is a dictionary
+    if not isinstance(ships, dict) or ships is None:
+        raise TypeError("Ships must be a dictionary")
+    # Checks if argument algorithm is a string
+    if not isinstance(algorithm, str):
+        raise TypeError("Algorithm must be a string")
+    # Checks if ship lengths are within the board
+    if max(ships.values()) > len(board) or min(ships.values()) < 1:
+        raise ValueError("Invalid ship length")
+
     if algorithm == "simple" and len(ships) <= len(board):
         return place_battleships_simple(board, ships)
     if algorithm == "random":
