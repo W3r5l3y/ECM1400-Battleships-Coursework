@@ -5,7 +5,7 @@ import components as c
 import game_engine as ge
 
 
-def generate_attack(size=10):
+def generate_attack(size: int = 10):
     """Generates coordinates at random"""
     col = randint(0, size - 1)
     row = randint(0, size - 1)
@@ -13,7 +13,7 @@ def generate_attack(size=10):
     return coordinates
 
 
-def ai_opponent_game_loop():
+def ai_opponent_game_loop() -> None:
     """Manual testing game loop for MP"""
 
     size = 10  # Size of grid used

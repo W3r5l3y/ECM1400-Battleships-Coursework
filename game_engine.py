@@ -3,7 +3,7 @@
 import components as c
 
 
-def attack(coordinates, board, battleships):
+def attack(coordinates: tuple, board: list, battleships: dict[str, int]) -> bool:
     """Checks if ships has been hit and updates battleships dictionary
 
     Keyword arguments:
@@ -25,7 +25,7 @@ def attack(coordinates, board, battleships):
     return False
 
 
-def cli_coordinates_input():
+def cli_coordinates_input() -> tuple:
     """Requests user input and formats into tuple"""
     while True:
         try:
@@ -43,7 +43,7 @@ def cli_coordinates_input():
             print("Error: Index out of range.")
 
 
-def simple_game_loop():
+def simple_game_loop() -> None:
     """Manual testing game loop"""
     print("|" + "-" * 100 + "|")
     print("Welcome to Battleships! (SINGLEPLAYER))")
