@@ -1,5 +1,6 @@
 """Main module for project"""
 
+import os
 import json
 from flask import Flask, render_template, jsonify, request
 
@@ -22,8 +23,12 @@ def placement_interface():
     if request.method == "POST":
         # Requests ship placement data from webpage
         data = request.get_json()
+        # Gets and constructs absolute path of file
+        # This is so that the file can be accessed by any environment
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(script_dir, "placement.json")
         # Opens placement.json to write to file
-        with open("placement.json", "w", encoding="utf-8") as json_file:
+        with open(file_path, "w", encoding="utf-8") as json_file:
             # Writes placement data to file
             json.dump(data, json_file, indent=4)
         return jsonify({"Success": True})

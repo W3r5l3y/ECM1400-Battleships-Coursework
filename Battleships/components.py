@@ -1,7 +1,9 @@
 """Module containing components of the game Battleships"""
 
-from random import randint
+import os
 import json
+from random import randint
+
 
 # Constants
 DOWN = 0
@@ -32,7 +34,12 @@ def create_battleships(filename: str = "battleships.txt") -> dict[str, int]:
     if not isinstance(filename, str) or filename is None:
         raise TypeError("Filename must be a string")
     try:
-        with open(filename, "r", encoding="utf-8") as f:
+        # Gets and constructs absolute path of file
+        # This is so that the file can be accessed by any environment
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(script_dir, filename)
+        # Opens battleships.txt to read file
+        with open(file_path, "r", encoding="utf-8") as f:
             filelines = f.readlines()
             for line in filelines:
                 ship = line.strip().split(":")
@@ -126,9 +133,12 @@ def place_battleships_custom(
     board: list[list[None]], battleships: dict[str, int]
 ) -> list[list]:
     """Custom algorithm of battleships using placement.json"""
-
+    # Gets and constructs absolute path of file
+    # This is so that the file can be accessed by any environment
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(script_dir, "placement.json")
     # Load ship placement data from placement.json
-    with open("placement.json", "r", encoding="utf-8") as placement:
+    with open(file_path, "r", encoding="utf-8") as placement:
         ship_data = json.load(placement)
 
     # Place each ship on the board based on custom placement data
