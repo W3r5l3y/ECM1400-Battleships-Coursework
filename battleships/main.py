@@ -80,9 +80,16 @@ def process_attack():
             if game_over is not True:
                 # Player attack on BOT's board
                 # Requests attack coordinates from request arguments
+                # Loops until bot move is unique
                 row = request.args.get("x")
                 col = request.args.get("y")
                 player_attack = (int(col), int(row))
+                # Checks if attack has already been played
+                if player_attack in player_already_attacked:
+                    # If attack has already been played, stops function here
+                    return "Already Attacked"
+                # Adds player attack to list to prevent repeat attacks on same coordinates
+                player_already_attacked.append(player_attack)
                 # Performs attack on bot board and returns hit or miss as True or False
                 outcome = ge.attack(
                     player_attack,
@@ -150,6 +157,7 @@ def process_attack():
 BOARD_SIZE = 10
 players = {}
 bot_already_attacked = []
+player_already_attacked = []
 
 # Initialises the boards and battleships for player and BOT
 player_board = c.initialise_board(size=BOARD_SIZE)
