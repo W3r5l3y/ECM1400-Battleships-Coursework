@@ -16,13 +16,13 @@ Before you begin, ensure you have the following prerequisites installed:
 
 You can install these dependencies using the following commands:
 
-# Install Python 3.9.6
+## Install Python 3.9.6
 
-## For Windows:
+## For Windows
 
 Visit [Python Downloads](https://www.python.org/downloads/release/python-396/) and download the installer. Follow the installation instructions.
 
-## For macOS:
+## For macOS
 
 Open a terminal and run:
 
@@ -30,7 +30,7 @@ Open a terminal and run:
 brew install python@3.9.
 ```
 
-## For Linux(Debian/Ubuntu):
+## For Linux(Debian/Ubuntu)
 
 Open a terminal and run:
 
@@ -39,7 +39,7 @@ sudo apt-get update
 sudo apt-get install python3.9
 ```
 
-# Install Flask and pytest
+## Install Flask and pytest
 
 ```bash
 pip install Flask
