@@ -28,6 +28,8 @@ To contribute to the project, simply fork the repository and make your changes. 
 
 This project is licensed under the MIT license. See the `LICENSE.txt` file for more details.
 
-```
+## Details
 
-```
+Author: James Worley
+Source code:
+Acknowledgments: This was the coursework project made for ECM1400 at Exeter University
