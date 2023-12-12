@@ -4,7 +4,18 @@ import pytest
 from components import initialise_board, create_battleships, place_battleships
 
 # Ideal 10x10 board
-ideal_board = [[None] * 10 for _ in range(10)]
+ideal_board = [
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+    [None, None, None, None, None, None, None, None, None, None],
+]
 
 # Ideal battleships
 ideal_ships = {
@@ -161,6 +172,10 @@ def test_place_battleships_algorithm(algorithm, expected_exception):
 
 # Test for correct output of initialise_board
 def test_initialise_board_output():
+    """
+    Test to verify the output of initialise_board is a list of lists of None values
+    without giving an argument (default size = 10)
+    """
     board = initialise_board()
 
     # Check the type of the output
@@ -174,7 +189,11 @@ def test_initialise_board_output():
 
 # Test for correct output of create_battleships
 def test_create_battleships_output():
-    battleships = create_battleships("battleships.txt")
+    """
+    Test to verify the output of create_battleships is a dictionary where the keys are strings
+    and the values are integers without giving an argument (default filename = battleships.txt)
+    """
+    battleships = create_battleships()
 
     # Check the type of the output
     # Checks battleships is a dictionary
@@ -186,8 +205,16 @@ def test_create_battleships_output():
 
 # Test for correct output of place_battleships
 def test_place_battleships_output():
+    """
+    Test to verify the output of place_battleships is a list of lists which contains string
+    values when given 2 arguments (ideal_board, ideal_ships)
+    """
     board = place_battleships(ideal_board, ideal_ships)
 
     # Check the type of the output
     # Checks board is a list
     assert isinstance(board, list)
+    # Checks that board is a list of lists
+    assert all(isinstance(row, list) for row in board)
+    # Checks that there are some string values in the board
+    assert any(any(isinstance(element, str) for element in row) for row in board)
