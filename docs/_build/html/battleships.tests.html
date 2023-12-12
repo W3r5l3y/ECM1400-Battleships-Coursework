@@ -1,126 +1,284 @@
-<!DOCTYPE html>
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
 
-<html lang="en" data-content_root="./">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+        <title>battleships.tests package - ECM1400-Battleships-Coursework 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
 
-    <title>battleships.tests package &#8212; ECM1400-Battleships-Coursework 0.0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
-    <script src="_static/documentation_options.js?v=d45e8c67"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">ECM1400-Battleships-Coursework 0.0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
+  <span class="sidebar-brand-text">ECM1400-Battleships-Coursework 0.0.1 documentation</span>
   
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  
+</div>
+</div>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
           
-
-          <div class="body" role="main">
-            
-  <section id="battleships-tests-package">
-<h1>battleships.tests package<a class="headerlink" href="#battleships-tests-package" title="Link to this heading">¶</a></h1>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="battleships-tests-package">
+<h1>battleships.tests package<a class="headerlink" href="#battleships-tests-package" title="Link to this heading">#</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
 </section>
 <section id="module-battleships.tests.test_components">
-<span id="battleships-tests-test-components-module"></span><h2>battleships.tests.test_components module<a class="headerlink" href="#module-battleships.tests.test_components" title="Link to this heading">¶</a></h2>
+<span id="battleships-tests-test-components-module"></span><h2>battleships.tests.test_components module<a class="headerlink" href="#module-battleships.tests.test_components" title="Link to this heading">#</a></h2>
 <p>Module for testing the components used in the game Battleships</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_components.test_create_battleships">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_create_battleships</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_create_battleships" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_create_battleships</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_create_battleships" title="Link to this definition">#</a></dt>
 <dd><p>Tests create_battleships with a range of different inputs</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_components.test_create_battleships_output">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_create_battleships_output</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_create_battleships_output" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_create_battleships_output</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_create_battleships_output" title="Link to this definition">#</a></dt>
 <dd><p>Test to verify the output of create_battleships is a dictionary where the keys are strings
 and the values are integers without giving an argument (default filename = battleships.txt)</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_components.test_initialise_board">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_initialise_board</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_initialise_board" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_initialise_board</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_initialise_board" title="Link to this definition">#</a></dt>
 <dd><p>Tests initialise_board with a range of different inputs</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_components.test_initialise_board_output">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_initialise_board_output</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_initialise_board_output" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_initialise_board_output</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_initialise_board_output" title="Link to this definition">#</a></dt>
 <dd><p>Test to verify the output of initialise_board is a list of lists of None values
 without giving an argument (default size = 10)</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_components.test_place_battleships_algorithm">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algorithm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_place_battleships_algorithm" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algorithm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_place_battleships_algorithm" title="Link to this definition">#</a></dt>
 <dd><p>Tests place_battleships with a range of different inputs</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_components.test_place_battleships_board">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_board</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_place_battleships_board" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_board</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_place_battleships_board" title="Link to this definition">#</a></dt>
 <dd><p>Tests place_battleships with a range of different inputs</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_components.test_place_battleships_output">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_output</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_place_battleships_output" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_output</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_place_battleships_output" title="Link to this definition">#</a></dt>
 <dd><p>Test to verify the output of place_battleships is a list of lists which contains string
 values when given 2 arguments (ideal_board, ideal_ships)</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_components.test_place_battleships_ships">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_ships</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">battleships</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_place_battleships_ships" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_components.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_ships</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">board</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">battleships</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_exception</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_components.test_place_battleships_ships" title="Link to this definition">#</a></dt>
 <dd><p>Tests place_battleships with a range of different inputs</p>
 </dd></dl>
 
 </section>
 <section id="module-battleships.tests.test_functionality">
-<span id="battleships-tests-test-functionality-module"></span><h2>battleships.tests.test_functionality module<a class="headerlink" href="#module-battleships.tests.test_functionality" title="Link to this heading">¶</a></h2>
+<span id="battleships-tests-test-functionality-module"></span><h2>battleships.tests.test_functionality module<a class="headerlink" href="#module-battleships.tests.test_functionality" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_functionality.test_attack_return">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_attack_return</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_attack_return" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_attack_return</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_attack_return" title="Link to this definition">#</a></dt>
 <dd><p>Test if the attack function returns a boolean value corresponding to whether
 the attack was a hit or miss.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_functionality.test_create_battleships_return">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_create_battleships_return</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_create_battleships_return" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_create_battleships_return</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_create_battleships_return" title="Link to this definition">#</a></dt>
 <dd><p>Test if the create_battleships function returns a dictionary consisting of
 keys of type string and values of type integer when no arguments are given.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_functionality.test_generate_attack_return">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_generate_attack_return</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_generate_attack_return" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_generate_attack_return</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_generate_attack_return" title="Link to this definition">#</a></dt>
 <dd><p>Test if the generate_attack function returns a tuple of 2 integers within the range
 of the board both given and not given an argument of size (default = 10).</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_functionality.test_initialise_board_return_size">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_initialise_board_return_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_initialise_board_return_size" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_initialise_board_return_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_initialise_board_return_size" title="Link to this definition">#</a></dt>
 <dd><p>Test if the initialise_board function returns a list of the correct size.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_functionality.test_place_battleships_return_custom">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_return_custom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_place_battleships_return_custom" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_return_custom</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_place_battleships_return_custom" title="Link to this definition">#</a></dt>
 <dd><p>Test if the place_battleships function returns a list of lists consisting of
 None and strings when given a board, battleships dictionary and a placement.json
 file using the custom placement algorithm.</p>
@@ -128,7 +286,7 @@ file using the custom placement algorithm.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_functionality.test_place_battleships_return_random">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_return_random</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_place_battleships_return_random" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_return_random</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_place_battleships_return_random" title="Link to this definition">#</a></dt>
 <dd><p>Test if the place_battleships function returns a list of lists consisting of
 None and strings when given a board and battleships dictionary using the
 random placement algorithm.</p>
@@ -136,7 +294,7 @@ random placement algorithm.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_functionality.test_place_battleships_return_simple">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_return_simple</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_place_battleships_return_simple" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_functionality.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_return_simple</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_functionality.test_place_battleships_return_simple" title="Link to this definition">#</a></dt>
 <dd><p>Test if the place_battleships function returns a list of lists consisting of
 None and strings when given a board and battleships dictionary using the
 simple placement algorithm.</p>
@@ -144,244 +302,294 @@ simple placement algorithm.</p>
 
 </section>
 <section id="module-battleships.tests.test_helper_functions">
-<span id="battleships-tests-test-helper-functions-module"></span><h2>battleships.tests.test_helper_functions module<a class="headerlink" href="#module-battleships.tests.test_helper_functions" title="Link to this heading">¶</a></h2>
+<span id="battleships-tests-test-helper-functions-module"></span><h2>battleships.tests.test_helper_functions module<a class="headerlink" href="#module-battleships.tests.test_helper_functions" title="Link to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="battleships.tests.test_helper_functions.TestReport">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">battleships.tests.test_helper_functions.</span></span><span class="sig-name descname"><span class="pre">TestReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_helper_functions.TestReport" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">battleships.tests.test_helper_functions.</span></span><span class="sig-name descname"><span class="pre">TestReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_helper_functions.TestReport" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="battleships.tests.test_helper_functions.TestReport.add_message">
-<span class="sig-name descname"><span class="pre">add_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_helper_functions.TestReport.add_message" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_helper_functions.TestReport.add_message" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_helper_functions.is_dict_of_type">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_helper_functions.</span></span><span class="sig-name descname"><span class="pre">is_dict_of_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_helper_functions.is_dict_of_type" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_helper_functions.</span></span><span class="sig-name descname"><span class="pre">is_dict_of_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_helper_functions.is_dict_of_type" title="Link to this definition">#</a></dt>
 <dd><p>Used to test if an object is a dictionary of a certain type</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_helper_functions.is_list_of_lists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_helper_functions.</span></span><span class="sig-name descname"><span class="pre">is_list_of_lists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_helper_functions.is_list_of_lists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_helper_functions.</span></span><span class="sig-name descname"><span class="pre">is_list_of_lists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_helper_functions.is_list_of_lists" title="Link to this definition">#</a></dt>
 <dd><p>Used to test if an object is a list of lists of a certain type</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_helper_functions.tuple_of_type">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_helper_functions.</span></span><span class="sig-name descname"><span class="pre">tuple_of_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_helper_functions.tuple_of_type" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_helper_functions.</span></span><span class="sig-name descname"><span class="pre">tuple_of_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_helper_functions.tuple_of_type" title="Link to this definition">#</a></dt>
 <dd><p>Used to test if an object is a tuple of a certain type</p>
 </dd></dl>
 
 </section>
 <section id="module-battleships.tests.test_students">
-<span id="battleships-tests-test-students-module"></span><h2>battleships.tests.test_students module<a class="headerlink" href="#module-battleships.tests.test_students" title="Link to this heading">¶</a></h2>
+<span id="battleships-tests-test-students-module"></span><h2>battleships.tests.test_students module<a class="headerlink" href="#module-battleships.tests.test_students" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_ai_opponent_game_loop_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_ai_opponent_game_loop_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_ai_opponent_game_loop_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_ai_opponent_game_loop_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_ai_opponent_game_loop_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the ai_opponent_game_loop function exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_attack_arguments">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_attack_arguments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_attack_arguments" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_attack_arguments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_attack_arguments" title="Link to this definition">#</a></dt>
 <dd><p>Test if the attack function accepts a tuple, a list, and a dictionary argument.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_attack_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_attack_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_attack_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_attack_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_attack_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the attack function exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_battleships_txt_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_battleships_txt_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_battleships_txt_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_battleships_txt_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_battleships_txt_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the battleships.txt file exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_cli_coordinates_input_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_cli_coordinates_input_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_cli_coordinates_input_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_cli_coordinates_input_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_cli_coordinates_input_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the cli_coordinates_input function exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_components_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_components_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_components_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_components_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_components_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the components module exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_create_battleships_argument">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_create_battleships_argument</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_create_battleships_argument" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_create_battleships_argument</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_create_battleships_argument" title="Link to this definition">#</a></dt>
 <dd><p>Test if the create_battleships function accepts a string argument.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_create_battleships_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_create_battleships_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_create_battleships_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_create_battleships_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_create_battleships_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the create_battleships function exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_create_battleships_return_type">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_create_battleships_return_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_create_battleships_return_type" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_create_battleships_return_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_create_battleships_return_type" title="Link to this definition">#</a></dt>
 <dd><p>Test if the create_battleships function returns a dictionary.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_game_engine_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_game_engine_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_game_engine_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_game_engine_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_game_engine_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the game_engine module exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_generate_attack_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_generate_attack_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_generate_attack_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_generate_attack_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_generate_attack_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the generate_attack function exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_generate_attack_return_type">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_generate_attack_return_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_generate_attack_return_type" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_generate_attack_return_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_generate_attack_return_type" title="Link to this definition">#</a></dt>
 <dd><p>Test if the generate_attack function returns a tuple.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_initialise_board_argument">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_initialise_board_argument</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_initialise_board_argument" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_initialise_board_argument</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_initialise_board_argument" title="Link to this definition">#</a></dt>
 <dd><p>Test if the initialise_board function accepts an integer argument.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_initialise_board_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_initialise_board_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_initialise_board_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_initialise_board_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_initialise_board_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the initialise_board function exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_initialise_board_return_type">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_initialise_board_return_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_initialise_board_return_type" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_initialise_board_return_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_initialise_board_return_type" title="Link to this definition">#</a></dt>
 <dd><p>Test if the initialise_board function returns a list.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_main_module_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_main_module_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_main_module_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_main_module_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_main_module_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the main module exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_mp_game_engine_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_mp_game_engine_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_mp_game_engine_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_mp_game_engine_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_mp_game_engine_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the mp_game_engine module exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_place_battleships_arguments">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_arguments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_place_battleships_arguments" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_arguments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_place_battleships_arguments" title="Link to this definition">#</a></dt>
 <dd><p>Test if the place_battleships function accepts a list and a dictionary argument.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_place_battleships_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_place_battleships_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_place_battleships_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the place_battleships function exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_place_battleships_return_type">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_return_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_place_battleships_return_type" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_place_battleships_return_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_place_battleships_return_type" title="Link to this definition">#</a></dt>
 <dd><p>Test if the place_battleships function returns a list of lists of strings/None values.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_placement_interface_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_placement_interface_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_placement_interface_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_placement_interface_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_placement_interface_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the placement_interface function exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_root_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_root_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_root_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_root_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_root_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the root function exists.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="battleships.tests.test_students.test_simple_game_loop_exists">
-<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_simple_game_loop_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_simple_game_loop_exists" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">battleships.tests.test_students.</span></span><span class="sig-name descname"><span class="pre">test_simple_game_loop_exists</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#battleships.tests.test_students.test_simple_game_loop_exists" title="Link to this definition">#</a></dt>
 <dd><p>Test if the simple_game_loop function exists.</p>
 </dd></dl>
 
 </section>
 <section id="module-battleships.tests">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-battleships.tests" title="Link to this heading">¶</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-battleships.tests" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
-
-          </div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
           
         </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">ECM1400-Battleships-Coursework</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, James Worley
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
     </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">battleships.tests package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-battleships.tests.test_components">battleships.tests.test_components module</a><ul>
+<li><a class="reference internal" href="#battleships.tests.test_components.test_create_battleships"><code class="docutils literal notranslate"><span class="pre">test_create_battleships()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_components.test_create_battleships_output"><code class="docutils literal notranslate"><span class="pre">test_create_battleships_output()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_components.test_initialise_board"><code class="docutils literal notranslate"><span class="pre">test_initialise_board()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_components.test_initialise_board_output"><code class="docutils literal notranslate"><span class="pre">test_initialise_board_output()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_components.test_place_battleships_algorithm"><code class="docutils literal notranslate"><span class="pre">test_place_battleships_algorithm()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_components.test_place_battleships_board"><code class="docutils literal notranslate"><span class="pre">test_place_battleships_board()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_components.test_place_battleships_output"><code class="docutils literal notranslate"><span class="pre">test_place_battleships_output()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_components.test_place_battleships_ships"><code class="docutils literal notranslate"><span class="pre">test_place_battleships_ships()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-battleships.tests.test_functionality">battleships.tests.test_functionality module</a><ul>
+<li><a class="reference internal" href="#battleships.tests.test_functionality.test_attack_return"><code class="docutils literal notranslate"><span class="pre">test_attack_return()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_functionality.test_create_battleships_return"><code class="docutils literal notranslate"><span class="pre">test_create_battleships_return()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_functionality.test_generate_attack_return"><code class="docutils literal notranslate"><span class="pre">test_generate_attack_return()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_functionality.test_initialise_board_return_size"><code class="docutils literal notranslate"><span class="pre">test_initialise_board_return_size()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_functionality.test_place_battleships_return_custom"><code class="docutils literal notranslate"><span class="pre">test_place_battleships_return_custom()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_functionality.test_place_battleships_return_random"><code class="docutils literal notranslate"><span class="pre">test_place_battleships_return_random()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_functionality.test_place_battleships_return_simple"><code class="docutils literal notranslate"><span class="pre">test_place_battleships_return_simple()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-battleships.tests.test_helper_functions">battleships.tests.test_helper_functions module</a><ul>
+<li><a class="reference internal" href="#battleships.tests.test_helper_functions.TestReport"><code class="docutils literal notranslate"><span class="pre">TestReport</span></code></a><ul>
+<li><a class="reference internal" href="#battleships.tests.test_helper_functions.TestReport.add_message"><code class="docutils literal notranslate"><span class="pre">TestReport.add_message()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#battleships.tests.test_helper_functions.is_dict_of_type"><code class="docutils literal notranslate"><span class="pre">is_dict_of_type()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_helper_functions.is_list_of_lists"><code class="docutils literal notranslate"><span class="pre">is_list_of_lists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_helper_functions.tuple_of_type"><code class="docutils literal notranslate"><span class="pre">tuple_of_type()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-battleships.tests.test_students">battleships.tests.test_students module</a><ul>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_ai_opponent_game_loop_exists"><code class="docutils literal notranslate"><span class="pre">test_ai_opponent_game_loop_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_attack_arguments"><code class="docutils literal notranslate"><span class="pre">test_attack_arguments()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_attack_exists"><code class="docutils literal notranslate"><span class="pre">test_attack_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_battleships_txt_exists"><code class="docutils literal notranslate"><span class="pre">test_battleships_txt_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_cli_coordinates_input_exists"><code class="docutils literal notranslate"><span class="pre">test_cli_coordinates_input_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_components_exists"><code class="docutils literal notranslate"><span class="pre">test_components_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_create_battleships_argument"><code class="docutils literal notranslate"><span class="pre">test_create_battleships_argument()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_create_battleships_exists"><code class="docutils literal notranslate"><span class="pre">test_create_battleships_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_create_battleships_return_type"><code class="docutils literal notranslate"><span class="pre">test_create_battleships_return_type()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_game_engine_exists"><code class="docutils literal notranslate"><span class="pre">test_game_engine_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_generate_attack_exists"><code class="docutils literal notranslate"><span class="pre">test_generate_attack_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_generate_attack_return_type"><code class="docutils literal notranslate"><span class="pre">test_generate_attack_return_type()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_initialise_board_argument"><code class="docutils literal notranslate"><span class="pre">test_initialise_board_argument()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_initialise_board_exists"><code class="docutils literal notranslate"><span class="pre">test_initialise_board_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_initialise_board_return_type"><code class="docutils literal notranslate"><span class="pre">test_initialise_board_return_type()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_main_module_exists"><code class="docutils literal notranslate"><span class="pre">test_main_module_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_mp_game_engine_exists"><code class="docutils literal notranslate"><span class="pre">test_mp_game_engine_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_place_battleships_arguments"><code class="docutils literal notranslate"><span class="pre">test_place_battleships_arguments()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_place_battleships_exists"><code class="docutils literal notranslate"><span class="pre">test_place_battleships_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_place_battleships_return_type"><code class="docutils literal notranslate"><span class="pre">test_place_battleships_return_type()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_placement_interface_exists"><code class="docutils literal notranslate"><span class="pre">test_placement_interface_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_root_exists"><code class="docutils literal notranslate"><span class="pre">test_root_exists()</span></code></a></li>
+<li><a class="reference internal" href="#battleships.tests.test_students.test_simple_game_loop_exists"><code class="docutils literal notranslate"><span class="pre">test_simple_game_loop_exists()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-battleships.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
 
-
-
-
-
-
-
-
+          </div>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2023, James Worley.
       
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
       
-      |
-      <a href="_sources/battleships.tests.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
 </html>
