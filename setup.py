@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="battleships-pgk-jworley",
-    version="0.0.1",
+    version="0.0.2",
     author="James Worley",
     author_email="jw1412@exeter.ac.uk",
     description="A game of Battleships in Python for ECM1400 Coursework.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/W3r5l3y/ECM1400-Battleships-Coursework/",
+    url="https://github.com/W3r5l3y/ECM1400-Battleships-Coursework",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
