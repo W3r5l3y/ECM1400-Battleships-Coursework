@@ -136,4 +136,5 @@ This project is licensed under the [MIT License](LICENSE.txt). See the [LICENSE.
 
 - **Author:** James Worley
 - **Source code:** [GitHub Repository](https://github.com/W3r5l3y/ECM1400-Battleships-Coursework)
+- **PyPI:** [Package on PyPI](https://test.pypi.org/project/battleships-pgk-jworley/0.0.1/)
 - **Acknowledgments:** This was the coursework project made for ECM1400 at Exeter University
