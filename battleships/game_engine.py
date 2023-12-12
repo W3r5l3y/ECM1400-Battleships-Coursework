@@ -11,10 +11,15 @@ def attack(coordinates: tuple, board: list, battleships: dict[str, int]) -> bool
     board -- list of lists containing battleship placements
     battlships -- dictionary containing battleship name and length
     """
+    # Checks if coordinates are within range of board
     if max(coordinates) < len(board):
+        # Splits coordinates into col and row from tuple
         col, row = coordinates
+        # Checks if cell is not empty
         if board[col][row] is not None:
+            # Stores ship name in variable
             ship = board[col][row]
+            # Sets cell to None
             board[col][row] = None
             # Decrements length of hit ship by 1
             battleships[ship] = str(int(battleships[ship]) - 1)
@@ -45,6 +50,7 @@ def cli_coordinates_input() -> tuple:
 
 def simple_game_loop() -> None:
     """Manual testing game loop"""
+    # Prints welcome message
     print("|" + "-" * 100 + "|")
     print("Welcome to Battleships! (SINGLEPLAYER))")
     print("|" + "-" * 100 + "|")
@@ -64,11 +70,14 @@ def simple_game_loop() -> None:
     game_over = False
     while game_over is False:
         while True:
+            # Gets coordinates from user
             coordinates = cli_coordinates_input()
             # Checks if coordinates are within range of board
             if max(coordinates) < len(board):
                 break
             print("Coordinates out of range!")
+
+        # Checks if attack was successful and prints result
         if attack(coordinates, board, battleships) is True:
             print("HIT!")
         else:

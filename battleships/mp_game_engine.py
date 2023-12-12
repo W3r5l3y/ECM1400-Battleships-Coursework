@@ -7,8 +7,10 @@ import game_engine as ge
 
 def generate_attack(size: int = 10):
     """Generates coordinates at random"""
+    # Generates random col and row within the board
     col = randint(0, size - 1)
     row = randint(0, size - 1)
+    # Puts col and row into a tuple
     coordinates = (col, row)
     return coordinates
 
@@ -18,9 +20,12 @@ def ai_opponent_game_loop() -> None:
 
     size = 10  # Size of grid used
 
+    # Prints welcome message
     print("|" + "-" * 100 + "|")
     print("Welcome to Battleships! (MULTIPLAYER)")
     print("|" + "-" * 100 + "|")
+
+    # Asks player for username
     username = str(input("Enter your name...\n"))
 
     # Initialises the boards and battleships for player and BOT
@@ -51,16 +56,19 @@ def ai_opponent_game_loop() -> None:
     # Game loop
     game_over = False
     while game_over is False:
-        # Processes the players coordinates on the BOT's board
+        # Player's turn
         print("\nYour move.")
+        # Loop to get valid coordinates from user
         while True:
             player_attack = ge.cli_coordinates_input()
             # Checks if coordinates are within range of board
             if max(player_attack) < size:
                 break
+        # Processes the players coordinates on the BOT's board
         outcome = ge.attack(
             player_attack, players["BOT"]["board"], players["BOT"]["battleships"]
         )
+        # Checks if attack was successful and prints result
         if outcome is True:
             print("HIT!")
         else:
@@ -70,16 +78,20 @@ def ai_opponent_game_loop() -> None:
         game_over = all(
             all(value is None for value in row) for row in players["BOT"]["board"]
         )
+        # Checks if game is over and announces winner
         if game_over is True:
             winner = username.upper()
             break
 
-        # Processes the BOT's coordinates on the players board
+        # BOT's turn
         print("\nBot's move.")
+        # Generates BOT's coordinates
         bot_attack = generate_attack(size)
+        # Processes the BOT's coordinates on the player's board
         outcome = ge.attack(
             bot_attack, players[username]["board"], players[username]["battleships"]
         )
+        # Checks if BOT attack was successful and prints result
         if outcome is True:
             print("BOT HIT!")
         else:
@@ -90,6 +102,7 @@ def ai_opponent_game_loop() -> None:
         game_over = all(
             all(value is None for value in row) for row in players[username]["board"]
         )
+        # Checks if game is over and announces BOT as winner
         if game_over is True:
             winner = "BOT"
 

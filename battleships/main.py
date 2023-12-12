@@ -14,8 +14,20 @@ app = Flask(__name__)
 
 @app.route("/placement", methods=["GET", "POST"])
 def placement_interface():
-    """Initial placement of the ships on the board"""
+    """
+    Handles the initial placement of the ships on the board.
+
+    This function serves a dual purpose depending on the HTTP method used.
+
+    If a GET request is made, it returns a rendered template of the game board
+    and the player can place their battleships onto the board.
+
+    If a POST request is made, it receives the ship placement data from the
+    webpage and writes the ship placement data to a JSON file.
+    """
+
     if request.method == "GET":
+        # Shows the placement.html template where the player can place battleships
         return render_template(
             "placement.html", ships=player_battleships, board_size=BOARD_SIZE
         )
@@ -31,6 +43,7 @@ def placement_interface():
         with open(file_path, "w", encoding="utf-8") as json_file:
             # Writes placement data to file
             json.dump(data, json_file, indent=4)
+        # Returns success message
         return jsonify({"Success": True})
 
     return None
@@ -38,19 +51,30 @@ def placement_interface():
 
 @app.route("/", methods=["GET"])
 def root():
-    """PLACEHOLDER"""
+    """
+    Handles the root route of the application. During normal gameplay,
+    this route is only called once
+
+    This function is called after the player has places their battleships and sends
+    a GET request to the "/" route. It places battleships on the player's board
+    according to their choice on /placement. This is done by reading the ship placement
+    data from the placement.json file through the place_battleships function.
+    The player's board data is then passed to the main.html template.
+    """
 
     # Declaring global variable
     global player_board
 
     if request.method == "GET":
         # Places battleships on players board according to their choice on /placement
+        # This is done by reading the ship placements from the placement.json file
         player_board = c.place_battleships(
             player_board, player_battleships, algorithm="custom"
         )
-        # Updates player data dictionary
+        # Updates player data dictionary with board with battleships placed
         players["player"]["board"] = player_board
 
+    # Returns the main.html template with the player's board data
     return render_template("main.html", player_board=player_board)
 
 
@@ -60,9 +84,11 @@ def process_attack():
     Processes an attack made when the player clicks on the grid.
 
     This function is called when a GET request is made to the "/attack" route.
-    It reads the attack coordinates from the request arguments and plays one turn of battleships.
-    There are 2 checks for game over and when game is over, GET requests made to the "/attack" route
-    will be ignored
+    It reads the attack coordinates from the request arguments (where the player clicks
+    on the board) and plays one turn of battleships. This function processes the turns
+    of both the player and the BOT and will check if the game is over each turn.
+    When game is over, GET requests made to the "/attack" route will be ignored
+    therefore preventing further attacks.
     """
 
     if request.args:
@@ -147,6 +173,7 @@ def process_attack():
                 {"hit": outcome, "Player_Turn": player_attack, "AI_Turn": bot_attack}
             )
 
+        # If game over send game over message and prevent further attacks
         except UnboundLocalError:
             return "Game Over"
 

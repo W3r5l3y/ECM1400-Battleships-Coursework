@@ -16,10 +16,13 @@ def initialise_board(size: int = 10) -> list[list[None]]:
     Keyword arguments:
     size -- the size of the board (default 10, range: 5-10)
     """
+    # Checks if size is an integer and within range
     if size < 5 or size > 10:
         raise ValueError("Size must be between 5 and 10")
+    # Checks if size is an integer or None (defaults to 10)
     if not isinstance(size, int) or size is None:
         raise TypeError("Size must be an integer")
+    # Creates a board of size * size
     board = [[None] * size for _ in range(size)]
     return board
 
@@ -31,6 +34,7 @@ def create_battleships(filename: str = "battleships.txt") -> dict[str, int]:
     filename -- name of file containing battleship data (default "battleships.txt")
     """
     battleships = {}
+    # Checks if filename is a string or None (defaults to "battleships.txt")
     if not isinstance(filename, str) or filename is None:
         raise TypeError("Filename must be a string")
     try:
@@ -40,13 +44,19 @@ def create_battleships(filename: str = "battleships.txt") -> dict[str, int]:
         file_path = os.path.join(script_dir, filename)
         # Opens battleships.txt to read file
         with open(file_path, "r", encoding="utf-8") as f:
+            # Reads each line of the file
             filelines = f.readlines()
+            # Iterates through each line
             for line in filelines:
+                # Splits and strips lines into ship name and length
                 ship = line.strip().split(":")
+                # Checks if ship is a valid list
                 if len(ship) == 2:
+                    # Adds ship to dictionary with name as key and length as value
                     battleships[ship[0]] = int(ship[1])
                 else:
                     raise ValueError("Invalid data format in the file")
+    # Raises and handles error if file is not found
     except FileNotFoundError as err:
         raise FileNotFoundError(f"File '{filename}' not found") from err
     return battleships
@@ -57,8 +67,8 @@ def is_position_occupied(
 ) -> bool:
     """Checks if ship can fit and returns True or False"""
     check = True
+    # Iterates through the length of the ship
     for i in range(int(length)):
-        # Iterates through the length of the ship
         if direction == DOWN:
             # Checks if cell is occupied iterating down the column
             if board[col + i][row] is not None:
@@ -75,6 +85,7 @@ def generate_starting_position(
 ) -> list[int, int]:
     """Generated valid starting position depending on size of board and the
     direction and length of ship"""
+    # Handles potential randint randrange error
     if len(board) - int(length) - 1 == -1:
         return [0, 0]
     if direction == DOWN:
@@ -97,10 +108,11 @@ def place_battleships_simple(
 ) -> list[list]:
     """Places a battleship on each row"""
     count = 0
+    # Repeats for each ship in battleships dictionary
     for ship in battleships.keys():
-        # Repeats for each ship
+        # Repeats for each length of the ship
         for i in range(battleships[ship]):
-            # Repeats for the length of the ship
+            # Places the ship onto the board
             board[count][i] = ship
         count += 1
     return board
@@ -110,16 +122,17 @@ def place_battleships_random(
     board: list[list[None]], battleships: dict[str, int]
 ) -> list[list]:
     """Places battleships randomly onto the board"""
+    # Repeats for each ship in battleships dictionary
     for ship, length in battleships.items():
-        # Repeats for each ship
         placed = False
         # Loop to check the ship has a valid placement
         while not placed:
+            # Generates random direction and starting position
             direction = randint(0, 1)
             col, row = generate_starting_position(board, direction, length)
             placed = is_position_occupied(board, col, row, direction, length)
 
-        # Places the ship onto the board
+        # Places the ship onto the board depending on direction
         if direction == DOWN:
             for i in range(int(length)):
                 board[col + i][row] = ship
@@ -149,7 +162,7 @@ def place_battleships_custom(
         direction = key[2]
         length = battleships.get(ship)
 
-        # Places the ship onto the board
+        # Places the ship onto the board depending on direction
         if direction == "v":
             for i in range(length):
                 board[col + i][row] = ship
@@ -191,6 +204,7 @@ def place_battleships(
     if max(ships.values()) > len(board) or min(ships.values()) < 1:
         raise ValueError("Invalid ship length")
 
+    # Calls the appropriate placement algorithm
     if algorithm == "simple" and len(ships) <= len(board):
         return place_battleships_simple(board, ships)
     if algorithm == "random":
