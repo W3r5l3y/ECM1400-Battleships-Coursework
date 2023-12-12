@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="ECM1400-Battleships-Coursework",
+    name="battleships-pgk-jworley",
     version="0.0.1",
     author="James Worley",
     author_email="jw1412@exeter.ac.uk",
