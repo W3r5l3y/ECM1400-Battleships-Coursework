@@ -1,4 +1,19 @@
-"""Module for testing the components used in the game Battleships"""
+"""
+This module contains unit tests for the 'components' module of the Battleships game.
+
+It uses pytest to define and run the tests. The 'components' module, 
+which contains the functions to be tested, is imported at the start.
+
+The tests cover the main functions of the 'components' module:
+- initialise_board
+- create_battleships
+- place_battleships
+
+The 'ideal_board' and 'ideal_ships' variables are used as ideal inputs and expected outputs for the tests.
+
+Each test function uses pytest's parametrize decorator to run the function with 
+different inputs and expected outputs.
+"""
 
 import pytest
 from components import initialise_board, create_battleships, place_battleships

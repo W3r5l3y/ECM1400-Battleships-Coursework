@@ -1,4 +1,20 @@
-"""Module containing multiplayer game mechanics"""
+"""
+This module contains the multiplayer game logic for the Battleships game, 
+where the player competes against a bot.
+
+It includes functions for generating random attacks within the board, and a game loop 
+for testing the game against an AI opponent. The game logic is handled by the 'game_engine' 
+and 'components' modules, which are imported as 'ge' and 'c' respectively.
+
+The main functions in this module are as follows:
+
+The `generate_attack` function generates a random attack for the bot within 
+the board and returns it as a tuple. 
+The `ai_opponent_game_loop` function is a manual testing game loop 
+where the player can play against the bot.
+
+This module is used by the main server module to handle the game logic.
+"""
 
 from random import randint
 import components as c

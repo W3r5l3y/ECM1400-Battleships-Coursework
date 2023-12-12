@@ -1,4 +1,20 @@
-"""Module containing components of the game Battleships"""
+"""
+This module contains the components of the Battleships game.
+
+It includes functions to initialise the game board, create battleships from a file, 
+and constants for the game directions. The board size can be specified when initialising 
+the board, and the battleships are created from a text file which can also be specified.
+The algorithm used to place the battleships can also be specified.
+- simple: places the battleships on each row
+- random: places the battleships randomly on the board
+- custom: places the battleships using a custom algorithm
+
+Constants:
+    DOWN: Represents the direction down of a ship.
+    RIGHT: Represents the direction right of a ship.
+
+This module is used by the main server module to handle the core game logic.
+"""
 
 import os
 import json
@@ -11,7 +27,13 @@ RIGHT = 1
 
 
 def initialise_board(size: int = 10) -> list[list[None]]:
-    """Initialises a board of size * size
+    """Initialises and returns a board of size * size
+
+    This function creates a square board with each cell set to None.
+    The size of the board is specified by the 'size' argument. If argument is not provided,
+    a default size of 10 is used. The function checks if the size is an integer and within
+    the range of 5 to 10, inclusive. If not, it raises an appropriate error.
+
 
     Keyword arguments:
     size -- the size of the board (default 10, range: 5-10)
@@ -28,10 +50,22 @@ def initialise_board(size: int = 10) -> list[list[None]]:
 
 
 def create_battleships(filename: str = "battleships.txt") -> dict[str, int]:
-    """Reads the text file and returns battleships as a dictionary
+    """
+    Reads the text file and returns battleships as a dictionary.
+
+    The input file should be formatted as follows:
+    Each line represents one battleship, with the name of the battleship
+    and its size separated by a colon.
+    For example:
+        Carrier:5
+        Battleship:4
+        Cruiser:3
+        Submarine:3
+        Destroyer:2
 
     Keyword arguments:
     filename -- name of file containing battleship data (default "battleships.txt")
+                must include file extension within argument.
     """
     battleships = {}
     # Checks if filename is a string or None (defaults to "battleships.txt")

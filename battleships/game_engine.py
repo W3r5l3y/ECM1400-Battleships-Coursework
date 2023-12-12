@@ -1,4 +1,19 @@
-"""Module containing game mechanics"""
+"""
+This module contains the core game logic for the Battleships game.
+
+It includes functions for initializing a singleplayer game, processing player moves, 
+and updating the board after an attack. This module includes checking if a ship has been hit, 
+if a ship has been sunk, and if all ships have been sunk therefore game over.
+
+The main functions in this module are as follows:
+
+The 'attack' function checks if a ship has been hit and updates the battleships dictionary.
+The 'cli_coordinates_input' function requests user input and formats into a tuple,
+which is then used by the 'attack' function.
+The 'simple_game_loop' function is a manual testing game loop for the game logic.
+
+This module is used by the main server module to handle the game logic.
+"""
 
 import components as c
 

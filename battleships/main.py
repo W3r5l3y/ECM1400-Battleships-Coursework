@@ -1,4 +1,18 @@
-"""Main module for project"""
+"""
+This is the main module for the Battleships game.
+
+This module uses Flask to create a web server that the Battleships game is played on. 
+It defines routes for the game, including the initial placement of ships and processing 
+the player and BOT turns.
+
+The game logic is handled by the imported 'game_engine' and 'mp_game_engine' modules, 
+and the 'components' module is used for creating and managing game data like 
+the board and ship placement.
+
+The placement of ships is handled on the '/placement' route.
+The main game is handled on the '/' route.
+The processing of attacks is handled on the '/attack' route.
+"""
 
 import os
 import json
