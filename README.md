@@ -60,17 +60,20 @@ Follow these steps to install and set up the project:
 python setup.py install
 ```
 
-This command will install the necessary dependencies and set up the project.
-
-Optionally, you can create a virtual environment before running the above command:
+Alternatively, you can test the package by installing it from Test PyPI. First, create a virtual environment:
 
 ```bash
 python -m venv venv
 source venv/bin/activate   # On Windows, use `venv\Scripts\activate`
-python setup.py install
 ```
 
-This will create a virtual environment and install the project within it, isolating it from your system's Python environment.
+Then, install the package from Test PyPI:
+
+```bash
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ battleships-pgk-jworley==0.0.1
+```
+
+Now you can use the package in your virtual environment.
 
 ## Getting Started
 
