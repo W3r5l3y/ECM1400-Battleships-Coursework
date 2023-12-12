@@ -1,10 +1,11 @@
 Metadata-Version: 2.1
 Name: battleships-pgk-jworley
-Version: 0.0.1
+Version: 0.0.2
 Summary: A game of Battleships in Python for ECM1400 Coursework.
-Home-page: https://github.com/W3r5l3y/ECM1400-Battleships-Coursework/
+Home-page: https://github.com/W3r5l3y/ECM1400-Battleships-Coursework
 Author: James Worley
-Author-email: jw1412@exeter.ac.uk
+Author-email: James Worley <jw1412@exeter.ac.uk>
+Project-URL: Homepage, https://github.com/W3r5l3y/ECM1400-Battleships-Coursework
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
@@ -30,13 +31,13 @@ Before you begin, ensure you have the following prerequisites installed:
 
 You can install these dependencies using the following commands:
 
-# Install Python 3.9.6
+## Install Python 3.9.6
 
-## For Windows:
+## For Windows
 
 Visit [Python Downloads](https://www.python.org/downloads/release/python-396/) and download the installer. Follow the installation instructions.
 
-## For macOS:
+## For macOS
 
 Open a terminal and run:
 
@@ -44,7 +45,7 @@ Open a terminal and run:
 brew install python@3.9.
 ```
 
-## For Linux(Debian/Ubuntu):
+## For Linux(Debian/Ubuntu)
 
 Open a terminal and run:
 
@@ -53,7 +54,7 @@ sudo apt-get update
 sudo apt-get install python3.9
 ```
 
-# Install Flask and pytest
+## Install Flask and pytest
 
 ```bash
 pip install Flask
@@ -74,17 +75,20 @@ Follow these steps to install and set up the project:
 python setup.py install
 ```
 
-This command will install the necessary dependencies and set up the project.
-
-Optionally, you can create a virtual environment before running the above command:
+Alternatively, you can test the package by installing it from Test PyPI. First, create a virtual environment:
 
 ```bash
 python -m venv venv
 source venv/bin/activate   # On Windows, use `venv\Scripts\activate`
-python setup.py install
 ```
 
-This will create a virtual environment and install the project within it, isolating it from your system's Python environment.
+Then, install the package from Test PyPI:
+
+```bash
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ battleships-pgk-jworley==0.0.1
+```
+
+Now you can use the package in your virtual environment.
 
 ## Getting Started
 
@@ -147,4 +151,5 @@ This project is licensed under the [MIT License](LICENSE.txt). See the [LICENSE.
 
 - **Author:** James Worley
 - **Source code:** [GitHub Repository](https://github.com/W3r5l3y/ECM1400-Battleships-Coursework)
+- **PyPI:** [Package on PyPI](https://test.pypi.org/project/battleships-pgk-jworley/0.0.1/)
 - **Acknowledgments:** This was the coursework project made for ECM1400 at Exeter University

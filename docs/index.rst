@@ -1,5 +1,5 @@
 .. ECM1400-Battleships-Coursework documentation master file, created by
-   sphinx-quickstart on Tue Dec 12 03:54:31 2023.
+   sphinx-quickstart on Tue Dec 12 21:01:18 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 

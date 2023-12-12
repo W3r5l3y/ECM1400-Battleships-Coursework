@@ -1,5 +1,6 @@
 LICENSE.txt
 README.md
+pyproject.toml
 setup.py
 battleships/__init__.py
 battleships/components.py
