@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.abspath("../battleships/"))
 project = "ECM1400-Battleships-Coursework"
 copyright = "2023, James Worley"
 author = "James Worley"
-release = "0.0.1"
+release = "0.0.2"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
