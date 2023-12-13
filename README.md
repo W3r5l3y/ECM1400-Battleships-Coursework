@@ -42,7 +42,7 @@ sudo apt-get install python3.9
 ## Install Flask and pytest
 
 ```bash
-pip install Flask
+pip install flask
 pip install pytest
 ```
 
